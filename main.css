@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* ****************************** Global Variables ************************************** */
+:root {
+    --primary: #EA40A4;
+    --bussiness: #3A82EE;
+    --light: #EEE;
+    --dark: #313154;
+    --danger: rgb(219, 23, 23);
+    --gray: #888;
+    --shadow: 0 1px 3px rgba(0, 0, 0.1);
+    --bussiness-glow: 0px, 0px, 4px #3A82EE;
+    --personal-glow: 0px, 0px, 4px #EA40A4;
+
+}
+
+input:not([type="radio"]) :not([type="checkbox"]),
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+}
+
+/* for each section, total there are 3 sections- greeting,create-todo, todo-list*/
+section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+h3 {
+    color: var(--dark);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    color: var(--gray);
+    font-size: 1.2rem;
+    padding-top: 10px;
+    margin-bottom: -3.3rem;
+
+    font-weight: 700;
+    text-align: center;
+    z-index: 1;
+
+}
+
+/* greeting styling */
+
+.greeting .title {
+    display: flex;
+    /* width: 100%; */
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+
+}
+
+.greeting .title input::placeholder {
+    color: rgb(163, 167, 163);
+}
+
+.greeting .title input {
+    margin-left: 0.5rem;
+    flex: 1 1 0%;
+    min-width: 0;
+    font-size: 2.5rem;
+    color: var(--dark);
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    opacity: 2;
+
+}
+
+/* ****************************** Create-todo ************************************** */
+.create-todo input[type="text"] {
+    display: block;
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    background-color: #FFF;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    border: none;
+}
+
+/* Options */
+.options {
+    border: 2px solid rgb(227, 210, 210);
+    padding: 40px 20px;
+    margin-top: 40px;
+    height: 30vh;
+}
+
+.create-todo .options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Options label */
+.create-todo .options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 1.7rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+    cursor: pointer;
+}
+
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--bussiness);
+    box-shadow: var(--bussiness-glow);
+}
+
+.bubble.personal {
+    border-color: var(--primary);
+    box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+    content: "";
+    display: flex;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    box-shadow: var(--bussiness-glow);
+    background-color: var(--bussiness);
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+    background-color: var(--primary);
+    box-shadow: var(--personal-glow);
+}
+
+input:checked~.bubble::after {
+    height: 10px;
+    width: 10px;
+    opacity: 1;
+}
+
+/* ---------------------------------------------------------------------- */
+/* todo list items */
+
+.todo-list h3 {
+    text-align: center;
+    margin-top: 0.4rem;
+}
+
+.create-todo .options label div {
+    margin-top: 0.3rem;
+    color: var(--dark);
+    font-size: 1.2rem;
+}
+
+.create-todo input[type="submit"] {
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+    color: var((--light));
+    background-color: var(--primary);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    box-shadow: var(--personal-glow);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.create-todo input[type="submit"]:hover {
+    opacity: 0.75;
+}
+
+/* ----------------------------------------------------------------------------- */
+
+.todo-list .list {
+    margin: 1rem 0;
+}
+
+.todo-list .todo-item {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    background-color: #fff;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+
+.todo-item label {
+    display: flex;
+    margin-right: 1rem;
+    cursor: pointer;
+    margin-left: 0.4rem;
+}
+
+.todo-item .todo-content {
+    flex: 1 1 0%;
+}
+
+.todo-item .todo-content input {
+    color: var(--dark);
+    font-size: 1.1rem;
+    border: none;
+    margin-left: 0.4rem;
+}
+
+.todo-item .actions {
+    display: flex;
+    align-items: center;
+}
+
+.todo-item .actions button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 1rem;
+}
+
+.todo-item .actions button:hover {
+    opacity: 0.75;
+}
+
+.todo-item .actions .edit {
+    background-color: var(--primary);
+    margin-right: 0.5rem;
+}
+
+.todo-item .actions .delete {
+    background-color: var(--danger);
+
+}
+
+/* **************************** Media Queries *********************************** */
+@media (max-width:443px) {
+    .todo-item {
+        display: flex;
+        flex-direction: column;
+        height: 6rem;
+    }
+
+    .todo-item .todo-content input {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .todo-item .actions .edit {
+        padding: 0.2rem 1.2rem;
+    }
+}
+
+@media (max-width:293px) {
+    .create-todo .options label {
+        width: 7rem;
+    }
+
+    .options label {
+        width: 1rem;
+        padding: 1rem 1rem;
+    }
+
+    .todo-item label,
+    .todo-content input[type="text"] {
+        display: inline-block;
+        flex-direction: row;
+    }
+}
+
+@media (max-width:382px) {
+    .options label {
+        width: 8rem;
+        padding: 1rem 1rem;
+    }
+}
+
+@media (max-width:362px) {
+    .options label {
+        width: 6rem;
+        padding: 1rem 1rem;
+    }
+
+    .greeting .title,
+    .greeting .title input[type='text'] {
+        font-size: 2.3rem;
+    }
+}
