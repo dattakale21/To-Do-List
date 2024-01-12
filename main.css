@@ -274,7 +274,49 @@ input:checked~.bubble::after {
 
 }
 
+
+#foot{
+    position: absolute;
+    bottom:0;
+    width: 100vw;
+    /* height: 5%; */
+    background-color: black;
+}
+
+#foot h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+    letter-spacing: 0.1rem;
+    color:#fff;
+    padding:0.4rem 0;
+    word-spacing: 0.3rem;
+}
+
 /* **************************** Media Queries *********************************** */
+
+@media (max-width:1440px) {
+
+    #foot{
+        position: absolute;
+        bottom:0;
+        width: 100vw;
+        /* height: 5%; */
+        background-color: black;
+    }
+    
+    #foot h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 90%;
+        letter-spacing: 0.1rem;
+        color:#fff;
+        padding:0.4rem 0;
+        word-spacing: 0.3rem;
+    }
+}
 @media (max-width:443px) {
     .todo-item {
         display: flex;
