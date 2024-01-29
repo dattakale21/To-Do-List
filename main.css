@@ -31,6 +31,14 @@ button {
 body {
     background: var(--light);
     color: var(--dark);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    min-height: 100%;
+    position: relative;
 }
 
 /* for each section, total there are 3 sections- greeting,create-todo, todo-list*/
@@ -206,6 +214,7 @@ input:checked~.bubble::after {
 
 .todo-list .list {
     margin: 1rem 0;
+    overflow: auto;
 }
 
 .todo-list .todo-item {
@@ -270,7 +279,7 @@ input:checked~.bubble::after {
 
 
 #foot {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 98vw;
     background-color: rgb(142, 139, 141);
@@ -385,5 +394,24 @@ input:checked~.bubble::after {
         font-size: 30%;
     }
 }
+
+@media (max-width: 412px) and (max-height: 914px) {
+    #foot {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
+
+@media (max-height: 534px) {
+ 
+    .create-todo input[type="submit"]{
+        margin-top: 10%;
+    }
+
+}
+
+
 
 /* CODE BY:- Datta kale */
